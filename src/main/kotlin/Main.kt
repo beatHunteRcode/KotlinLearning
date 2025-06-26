@@ -101,7 +101,7 @@ fun compareTo(date1: String, date2: String): Int {
 }
 
 suspend fun slowlyAddNumbers(a: Int, b: Int): Int {
-    log("Waiting a bit before calculating $a + $b")
+    println("Waiting a bit before calculating $a + $b")
     delay(1000.milliseconds * a)
     return a + b
 }

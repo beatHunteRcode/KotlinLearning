@@ -4,36 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8bcd01cd-97c5-4b90-ab1d-f956d858bf04" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/input/stream_list.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/output/i.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/output/names.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/output/stream_list.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/output/urls.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/ArithmeticOperations.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/Corge.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/Doge.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/JSONToCSVConverter.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/NumberOperations.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/Statistics.kt" afterDir="false" />
-    </list>
+    <list default="true" id="8bcd01cd-97c5-4b90-ab1d-f956d858bf04" name="Changes" comment="Something ends, something begins..." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -70,14 +41,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "D:/Programming/Kotlin/Idea Projects/KotlinLearning"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Programming/Kotlin/Idea Projects/KotlinLearning&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Programming\Kotlin\Idea Projects\KotlinLearning\src\main\kotlin" />
@@ -106,6 +77,18 @@
       <option name="presentableId" value="Default" />
       <updated>1750882802837</updated>
     </task>
+    <task id="LOCAL-00001" summary="Something ends, something begins...">
+      <created>1750925463144</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1750925463145</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Something ends, something begins..." />
+    <option name="LAST_COMMIT_MESSAGE" value="Something ends, something begins..." />
   </component>
 </project>
