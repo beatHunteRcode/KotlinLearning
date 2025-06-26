@@ -1,8 +1,6 @@
-import kotlinx.coroutines.async
-import kotlinx.coroutines.delay
+import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.flow.zip
-import kotlinx.coroutines.runBlocking
 import java.rmi.server.LogStream.log
 import java.text.SimpleDateFormat
 import java.util.*
@@ -11,15 +9,8 @@ import kotlin.time.Duration.Companion.milliseconds
 
 fun main(args: Array<String>) {
 
-    runBlocking {
-        println("Starting the async computation")
-        val myFirstDeferred = async { slowlyAddNumbers(2, 2) }
-        val mySecondDeferred = async { slowlyAddNumbers(4, 4) }
-        println("Waiting for the deferred value to be available")
-        println("The first result: ${myFirstDeferred.await()}")
-        println("The second result: ${mySecondDeferred.await()}")
-        println("ABOBA")
-    }
+    val coroutines = Coroutines()
+    coroutines.runExamples()
 
 //    val english = listOf("red", "yellow", "blue").asFlow()
 //    val russian = listOf("красный", "желтый", "синий").asFlow()
@@ -98,10 +89,4 @@ fun compareTo(date1: String, date2: String): Int {
         thisDate.time < otherDate.time -> -1
         else -> 0
     }
-}
-
-suspend fun slowlyAddNumbers(a: Int, b: Int): Int {
-    println("Waiting a bit before calculating $a + $b")
-    delay(1000.milliseconds * a)
-    return a + b
 }
