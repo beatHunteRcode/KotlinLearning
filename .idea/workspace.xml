@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8bcd01cd-97c5-4b90-ab1d-f956d858bf04" name="Changes" comment="Playing with kotlin coroutines async">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/Coroutines.kt" afterDir="false" />
+    <list default="true" id="8bcd01cd-97c5-4b90-ab1d-f956d858bf04" name="Changes" comment="Playing with kotlin coroutines: runBlocking, launch, withContext">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Coroutines.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Coroutines.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,12 +99,20 @@
       <option name="project" value="LOCAL" />
       <updated>1750925706988</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Playing with kotlin coroutines: runBlocking, launch, withContext">
+      <created>1750938911626</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1750938911626</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Something ends, something begins..." />
     <MESSAGE value="Playing with kotlin coroutines async" />
-    <option name="LAST_COMMIT_MESSAGE" value="Playing with kotlin coroutines async" />
+    <MESSAGE value="Playing with kotlin coroutines: runBlocking, launch, withContext" />
+    <option name="LAST_COMMIT_MESSAGE" value="Playing with kotlin coroutines: runBlocking, launch, withContext" />
   </component>
 </project>

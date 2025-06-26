@@ -1,5 +1,8 @@
 import kotlinx.coroutines.*
+import kotlinx.coroutines.sync.Mutex
+import kotlinx.coroutines.sync.withLock
 import kotlin.time.Duration.Companion.milliseconds
+import kotlin.time.Duration.Companion.seconds
 
 /**
  * Run with Configuration -> Edit -> VM Options -> -Dkotlinx.coroutines.debug
@@ -11,14 +14,26 @@ class Coroutines {
         get() = "[Thread: ${Thread.currentThread().name}]"
 
     fun runExamples() {
-        runCoroutineWithBlockMainThread()
+//        runCoroutineWithBlockMainThread()
+//        println()
+//
+//        runBlockingWithLaunch()
+//        println()
+//
+//        withContextExample()
+//        println()
+
+// ____________________________________________________________________________________
+
+        runSequentialIncrementWithOneCoroutine()
         println()
 
-        runBlockingWithLaunch()
+        runParallelIncrementWithManyCoroutines()
         println()
 
-        withContextExample()
+        runParallelIncrementWithManyCoroutinesUsingMutex()
         println()
+
     }
 
     private fun runCoroutineWithBlockMainThread() {
@@ -68,6 +83,57 @@ class Coroutines {
         println("$currentThread Waiting a bit before calculating $a + $b")
         delay(1000.milliseconds * a)
         return a + b
+    }
+
+    private fun runSequentialIncrementWithOneCoroutine() {
+        runBlocking {
+            println("Running sequential increment with one coroutine...")
+            repeat(3) {
+                var a = 0
+                launch {
+                    repeat(10_000) {
+                        a++
+                    }
+                }
+                delay(1.seconds)
+                println(a)
+            }
+        }
+    }
+
+    private fun runParallelIncrementWithManyCoroutines() {
+        runBlocking {
+            println("Running parallel increment with many coroutines...")
+            repeat(3) {
+                var a = 0
+                repeat(10_000) {
+                    launch(Dispatchers.Default) {
+                        a++
+                    }
+                }
+                delay(1.seconds)
+                println(a)
+            }
+        }
+    }
+
+    private fun runParallelIncrementWithManyCoroutinesUsingMutex() {
+        runBlocking {
+            println("Running parallel increment with many coroutines using mutex...")
+            repeat(3) {
+                var a = 0
+                val mutex = Mutex()
+                repeat(10_000) {
+                    launch(Dispatchers.Default) {
+                        mutex.withLock {
+                            (a++)
+                        }
+                    }
+                }
+                delay(1.seconds)
+                println(a)
+            }
+        }
     }
 
 }
