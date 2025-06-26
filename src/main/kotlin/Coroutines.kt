@@ -37,8 +37,11 @@ class Coroutines {
 
 // ____________________________________________________________________________________
 
-        showCoroutineContextInfo()
+//        showCoroutineContextInfo()
 
+//        runParentWithChildrenCoroutine()
+
+        coroutineScope_VS_CoroutineScope()
     }
 
     private fun runCoroutineWithBlockMainThread() {
@@ -139,6 +142,70 @@ class Coroutines {
                 println(a)
             }
         }
+    }
+
+    private fun runParentWithChildrenCoroutine() {
+        runBlocking { // this: CoroutineScope
+            launch { // this: CoroutineScope
+                delay(1.seconds)
+                launch {
+                    delay(250.milliseconds)
+                    println("Grandchild done")
+                }
+                println("Child 1 done!")
+            }
+            launch {
+                delay(500.milliseconds)
+                println("Child 2 done!")
+            }
+            println("Parent done!")
+        }
+        println("main done!")
+    }
+
+    private fun coroutineScope_VS_CoroutineScope() {
+        println("-------- USING coroutineScope --------")
+        runBlocking {
+            coroutineScope {
+                println("Reached Start of coroutineScope")
+                launch {
+                    println("Launched 1")
+                    delay(3000)
+                    println("Finished 1")
+                }
+                launch {
+                    println("Launched 2")
+                    delay(1000)
+                    println("Finished 2")
+                }
+                println("Reached End of coroutineScope")
+            }
+            println("Reached End of runBlocking")
+        }
+        println("DONE")
+
+        Thread.sleep(2000)
+        println()
+
+        println("-------- USING CoroutineScope() --------")
+        runBlocking {
+            CoroutineScope(Dispatchers.Default).launch {
+                println("Reached Start of CoroutineScope()")
+                launch {
+                    println("Launched 1")
+                    delay(3000)
+                    println("Finished 1")
+                }
+                launch {
+                    println("Launched 2")
+                    delay(1000)
+                    println("Finished 2")
+                }
+                println("Reached End of CoroutineScope()")
+            }
+            println("Reached End of runBlocking")
+        }
+        println("DONE")
     }
 
     private fun showCoroutineContextInfo() {
