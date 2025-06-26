@@ -1,6 +1,7 @@
 import kotlinx.coroutines.*
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
+import kotlin.coroutines.CoroutineContext
 import kotlin.time.Duration.Companion.milliseconds
 import kotlin.time.Duration.Companion.seconds
 
@@ -25,14 +26,18 @@ class Coroutines {
 
 // ____________________________________________________________________________________
 
-        runSequentialIncrementWithOneCoroutine()
-        println()
+//        runSequentialIncrementWithOneCoroutine()
+//        println()
+//
+//        runParallelIncrementWithManyCoroutines()
+//        println()
+//
+//        runParallelIncrementWithManyCoroutinesUsingMutex()
+//        println()
 
-        runParallelIncrementWithManyCoroutines()
-        println()
+// ____________________________________________________________________________________
 
-        runParallelIncrementWithManyCoroutinesUsingMutex()
-        println()
+        showCoroutineContextInfo()
 
     }
 
@@ -133,6 +138,24 @@ class Coroutines {
                 delay(1.seconds)
                 println(a)
             }
+        }
+    }
+
+    private fun showCoroutineContextInfo() {
+        runBlocking {
+            println("Default Coroutine: $coroutineContext")
+        }
+
+        runBlocking(Dispatchers.Default) {
+            println("Dispatcher changed: $coroutineContext")
+        }
+
+        runBlocking(Dispatchers.Default + CoroutineName("ABOBAtine")) {
+            println("Dispatcher + name changed: $coroutineContext")
+        }
+
+        runBlocking(Dispatchers.Default + SupervisorJob() + CoroutineName("ABOBAtine")) {
+            println("Dispatcher + job + name changed: $coroutineContext")
         }
     }
 
