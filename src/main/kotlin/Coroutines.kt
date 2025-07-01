@@ -41,7 +41,9 @@ class Coroutines {
 
 //        runParentWithChildrenCoroutine()
 
-        coroutineScope_VS_CoroutineScope()
+//        coroutineScope_VS_CoroutineScope()
+
+        coroutineParentChildRelations()
     }
 
     private fun runCoroutineWithBlockMainThread() {
@@ -223,6 +225,29 @@ class Coroutines {
 
         runBlocking(Dispatchers.Default + SupervisorJob() + CoroutineName("ABOBAtine")) {
             println("Dispatcher + job + name changed: $coroutineContext")
+        }
+    }
+
+    @OptIn(ExperimentalCoroutinesApi::class)
+    private fun coroutineParentChildRelations() {
+        runBlocking(CoroutineName("COROUTINE_MAIN")) {
+            println("Relations of ${coroutineContext[CoroutineName]?.name} before running launch:")
+            println("\tParent: ${coroutineContext.job.parent}")
+            println("\tChildren: ${coroutineContext.job.children.toList()}")
+            launch(CoroutineName("COROUTINE_LAUNCH")) {
+                println("- Relations of ${coroutineContext[CoroutineName]?.name} before running inside launch:")
+                println("\t- Parent: ${coroutineContext.job.parent}")
+                launch(CoroutineName("COROUTINE_INSIDE_LAUNCH")) {
+                    println("-- Relations of ${coroutineContext[CoroutineName]?.name}:")
+                    println("\t-- Parent: ${coroutineContext.job.parent}")
+                }
+                println("- Relations of ${coroutineContext[CoroutineName]?.name} after running inside launch:")
+                println("\t- Parent: ${coroutineContext.job.parent}")
+                println("\t- Children: ${coroutineContext.job.children.toList()}")
+            }
+            println("Relations of ${coroutineContext[CoroutineName]?.name} after running launch:")
+            println("\tParent: ${coroutineContext.job.parent}")
+            println("\tChildren: ${coroutineContext.job.children.toList()}")
         }
     }
 
