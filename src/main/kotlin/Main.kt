@@ -1,16 +1,13 @@
-import kotlinx.coroutines.*
-import kotlinx.coroutines.flow.asFlow
-import kotlinx.coroutines.flow.zip
-import java.rmi.server.LogStream.log
 import java.text.SimpleDateFormat
 import java.util.*
-import kotlin.time.Duration.Companion.milliseconds
 
 
 fun main(args: Array<String>) {
 
-    val coroutines = Coroutines()
-    coroutines.runExamples()
+//    val coroutines = Coroutines()
+//    coroutines.runExamples()
+
+    methodReferenceExample()
 
 //    val english = listOf("red", "yellow", "blue").asFlow()
 //    val russian = listOf("красный", "желтый", "синий").asFlow()
@@ -90,3 +87,20 @@ fun compareTo(date1: String, date2: String): Int {
         else -> 0
     }
 }
+
+fun methodReferenceExample() {
+    val numbers = listOf(1, 2, 3)
+    println(numbers)
+    println("Trying to print array in two different ways using Kotlin method reference:\n")
+    println("1) .forEach { ::printResult }")
+    numbers.forEach { ::printResult }
+
+    println()
+    println()
+    println("_________________")
+
+    println("2) .forEach(::printResult)")
+    numbers.forEach(::printResult)
+}
+
+fun printResult(x: Int): Unit = println(x)
