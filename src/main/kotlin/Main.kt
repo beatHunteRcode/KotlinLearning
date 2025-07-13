@@ -4,10 +4,10 @@ import java.util.*
 
 fun main(args: Array<String>) {
 
-//    val coroutines = Coroutines()
-//    coroutines.runExamples()
+    val coroutines = Coroutines()
+    coroutines.runExamples()
 
-    methodReferenceExample()
+//    methodReferenceExample()
 
 //    val english = listOf("red", "yellow", "blue").asFlow()
 //    val russian = listOf("красный", "желтый", "синий").asFlow()

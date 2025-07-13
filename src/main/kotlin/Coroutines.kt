@@ -1,6 +1,7 @@
 import kotlinx.coroutines.*
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
+import java.lang.Exception
 import kotlin.coroutines.CoroutineContext
 import kotlin.time.Duration.Companion.milliseconds
 import kotlin.time.Duration.Companion.seconds
@@ -43,7 +44,13 @@ class Coroutines {
 
 //        coroutineScope_VS_CoroutineScope()
 
-        coroutineParentChildRelations()
+//        coroutineParentChildRelations()
+
+//        coroutineCancel()
+//        withTimeoutExample()
+//        cascadeChildrenCancelling()
+//        cancelDoesNotWorkWithoutSuspendPoint()
+        yieldExample()
     }
 
     private fun runCoroutineWithBlockMainThread() {
@@ -249,6 +256,103 @@ class Coroutines {
             println("\tParent: ${coroutineContext.job.parent}")
             println("\tChildren: ${coroutineContext.job.children.toList()}")
         }
+    }
+
+    private fun coroutineCancel() = runBlocking {
+        val launchedJob = launch {
+            println("I'm launched!")
+            delay(1000.milliseconds)
+            println("I'm done!")
+        }
+        val asyncDeferred = async {
+            println("I'm async")
+            delay(1000.milliseconds)
+            println("I'm done!")
+        }
+        delay(200.milliseconds)
+        launchedJob.cancel()
+        asyncDeferred.cancel()
+    }
+
+    private fun withTimeoutExample() = runBlocking {
+        val quickResult = withTimeoutOrNull(500.milliseconds) {
+            delay(1.seconds)
+            return@withTimeoutOrNull "withTimeoutOrNull done"
+        }
+        println("withTimeoutOrNull with 500 ms and delay 1 sec: $quickResult")
+
+        val slowResult = withTimeoutOrNull(3.seconds) {
+            delay(1.seconds)
+            return@withTimeoutOrNull "withTimeoutOrNull done"
+        }
+        println("withTimeoutOrNull with 3 sec and delay 1 sec: $slowResult")
+
+        println("withTimeout with 500 ms and delay 1 sec:")
+        withTimeout(500.milliseconds) {
+            delay(1.seconds)
+            println("withTimeout done")
+        }
+    }
+
+    private fun cascadeChildrenCancelling() = runBlocking {
+        val job = launch {
+            println("Parent")
+            delay(500.milliseconds)
+            launch {
+                println("Child 1")
+                delay(500.milliseconds)
+                launch {
+                    println("Grand Child 1")
+                    delay(500.milliseconds)
+                    launch {
+                        println("Grand Grand Child 1")
+                    }
+                }
+            }
+            delay(200.milliseconds)
+            launch {
+                println("Child 2")
+                delay(500.milliseconds)
+                launch {
+                    println("Grand Child 2")
+                    delay(500.milliseconds)
+                    launch {
+                        println("Grand Grand Child 2")
+                    }
+                }
+            }
+        }
+        delay(800.milliseconds)
+        job.cancel()
+    }
+
+    private fun cancelDoesNotWorkWithoutSuspendPoint() = runBlocking {
+        val job = launch(Dispatchers.Default) {
+            repeat(5) {
+                println("Count: ${it + 1}; isActive - $isActive")
+                val timeNow = System.currentTimeMillis()
+                while (System.currentTimeMillis() < timeNow + 1000) {
+                    //artificial delay
+                }
+            }
+        }
+        delay(2.seconds)
+        job.cancel()
+    }
+
+    private fun yieldExample() = runBlocking {
+        val job = launch(Dispatchers.Default) {
+            repeat(5) {
+                println("Count: ${it + 1}; isActive - $isActive")
+                yield()
+                val timeNow = System.currentTimeMillis()
+                while (System.currentTimeMillis() < timeNow + 1000) {
+                    //artificial delay
+                }
+            }
+        }
+        delay(2.seconds)
+        job.cancel()
     }
 
 }
