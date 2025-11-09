@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8bcd01cd-97c5-4b90-ab1d-f956d858bf04" name="Changes" comment="Playing with kotlin coroutines: runBlocking, launch, withContext">
+    <list default="true" id="8bcd01cd-97c5-4b90-ab1d-f956d858bf04" name="Changes" comment="Kotlin coroutines: cancel(), withTimeout(), yield()">
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/Lambda.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Coroutines.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Coroutines.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +57,8 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Programming/Kotlin/Idea Projects/KotlinLearning&quot;
+    &quot;last_opened_file_path&quot;: &quot;D:/Programming/Kotlin/Idea Projects/KotlinLearning&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;inlay.hints&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -65,7 +66,14 @@
       <recent name="D:\Programming\Kotlin\Idea Projects\KotlinLearning\src\main\kotlin" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Kotlin.LambdaKt">
+    <configuration name="LambdaKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="LambdaKt" />
+      <module name="KotlinLearning.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MainKt" type="JetRunConfigurationType" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="MainKt" />
       <module name="KotlinLearning.main" />
@@ -75,6 +83,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Kotlin.LambdaKt" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -106,13 +119,96 @@
       <option name="project" value="LOCAL" />
       <updated>1750938911626</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Playing with kotlin coroutines: sequential and parallel variable changing">
+      <created>1750940205650</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1750940205650</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Added .idea/workspace.xml to .gitignore">
+      <created>1750940266673</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1750940266673</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Playing with kotlin coroutines: coroutine context">
+      <created>1750941721446</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1750941721446</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Kotlin coroutines: coroutineScope vs CoroutineScope()">
+      <created>1750964498528</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1750964498528</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Kotlin coroutines: parent-child relations">
+      <created>1751407099021</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1751407099021</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Added kotlin method reference example">
+      <created>1752083585718</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1752083585718</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Kotlin coroutines: cancel(), withTimeout(), yield()">
+      <created>1752437833902</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1752437833902</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Something ends, something begins..." />
     <MESSAGE value="Playing with kotlin coroutines async" />
     <MESSAGE value="Playing with kotlin coroutines: runBlocking, launch, withContext" />
-    <option name="LAST_COMMIT_MESSAGE" value="Playing with kotlin coroutines: runBlocking, launch, withContext" />
+    <MESSAGE value="Playing with kotlin coroutines: sequential and parallel variable changing" />
+    <MESSAGE value="Added .idea/workspace.xml to .gitignore" />
+    <MESSAGE value="Playing with kotlin coroutines: coroutine context" />
+    <MESSAGE value="Kotlin coroutines: coroutineScope vs CoroutineScope()" />
+    <MESSAGE value="Kotlin coroutines: parent-child relations" />
+    <MESSAGE value="Added kotlin method reference example" />
+    <MESSAGE value="Kotlin coroutines: cancel(), withTimeout(), yield()" />
+    <option name="LAST_COMMIT_MESSAGE" value="Kotlin coroutines: cancel(), withTimeout(), yield()" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/main/kotlin/Coroutines.kt</url>
+          <line>268</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="JetRunConfigurationType">
+        <watch expression="::isOdd" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>
