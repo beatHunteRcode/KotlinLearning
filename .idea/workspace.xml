@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8bcd01cd-97c5-4b90-ab1d-f956d858bf04" name="Changes" comment="Kotlin coroutines: cancel(), withTimeout(), yield()">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/Lambda.kt" afterDir="false" />
+    <list default="true" id="8bcd01cd-97c5-4b90-ab1d-f956d858bf04" name="Changes" comment="Added inline, noinline, crossinline, reified examples">
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/Multithreading.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -52,21 +52,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Programming/Kotlin/Idea Projects/KotlinLearning&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;inlay.hints&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "D:/Programming/Kotlin/Idea Projects/KotlinLearning",
+    "settings.editor.selected.configurable": "editor.preferences.tabs"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Programming\Kotlin\Idea Projects\KotlinLearning\src\main\kotlin" />
     </key>
   </component>
-  <component name="RunManager" selected="Kotlin.LambdaKt">
+  <component name="RunManager" selected="Kotlin.MultithreadingKt">
     <configuration name="LambdaKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="LambdaKt" />
       <module name="KotlinLearning.main" />
@@ -83,8 +83,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MultithreadingKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="MultithreadingKt" />
+      <module name="KotlinLearning.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Kotlin.MultithreadingKt" />
         <item itemvalue="Kotlin.LambdaKt" />
       </list>
     </recent_temporary>
@@ -168,7 +176,14 @@
       <option name="project" value="LOCAL" />
       <updated>1752437833902</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Added inline, noinline, crossinline, reified examples">
+      <created>1762673005305</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1762673005305</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -193,7 +208,8 @@
     <MESSAGE value="Kotlin coroutines: parent-child relations" />
     <MESSAGE value="Added kotlin method reference example" />
     <MESSAGE value="Kotlin coroutines: cancel(), withTimeout(), yield()" />
-    <option name="LAST_COMMIT_MESSAGE" value="Kotlin coroutines: cancel(), withTimeout(), yield()" />
+    <MESSAGE value="Added inline, noinline, crossinline, reified examples" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added inline, noinline, crossinline, reified examples" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -203,11 +219,35 @@
           <line>268</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://C:/Program Files/Java/jdk-21/lib/src.zip!/java.base/java/util/ArrayList.java</url>
+          <line>231</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://C:/Program Files/Java/jdk-21/lib/src.zip!/java.base/jdk/internal/util/ArraysSupport.java</url>
+          <line>739</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://C:/Program Files/Java/jdk-21/lib/src.zip!/java.base/java/util/ArrayList.java</url>
+          <line>236</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://C:/Program Files/Java/jdk-21/lib/src.zip!/java.base/java/util/ArrayList.java</url>
+          <line>483</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
       <configuration name="JetRunConfigurationType">
         <watch expression="::isOdd" />
+        <watch expression="minCapacity - oldCapacity" />
+        <watch expression="oldCapacity &gt;&gt; 1" />
+        <watch expression="Arrays.copyOf(elementData, newCapacity)" />
+        <watch expression="Arrays.copyOf(elementData, newCapacity)" />
       </configuration>
     </watches-manager>
   </component>
