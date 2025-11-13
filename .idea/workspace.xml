@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8bcd01cd-97c5-4b90-ab1d-f956d858bf04" name="Changes" comment="Multithreading: volatile, atomic, synchronized, mutex, semaphore, concurrent collections, race condition">
+    <list default="true" id="8bcd01cd-97c5-4b90-ab1d-f956d858bf04" name="Changes" comment="Move launch of coroutine examples to Coroutines.kt">
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/Collections.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -38,11 +39,13 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Kotlin Class" />
+        <option value="Kotlin File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="SOFT" />
   </component>
   <component name="ProjectId" id="2z0zVNiBb068zWv4WgS5o8DVAbt" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -65,7 +68,14 @@
       <recent name="D:\Programming\Kotlin\Idea Projects\KotlinLearning\src\main\kotlin" />
     </key>
   </component>
-  <component name="RunManager" selected="Kotlin.CoroutinesKt">
+  <component name="RunManager" selected="Kotlin.CollectionsKt">
+    <configuration name="CollectionsKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="CollectionsKt" />
+      <module name="KotlinLearning.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="CoroutinesKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="CoroutinesKt" />
       <module name="KotlinLearning.main" />
@@ -98,6 +108,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Kotlin.CollectionsKt" />
         <item itemvalue="Kotlin.CoroutinesKt" />
         <item itemvalue="Kotlin.MultithreadingKt" />
         <item itemvalue="Kotlin.LambdaKt" />
@@ -197,7 +208,21 @@
       <option name="project" value="LOCAL" />
       <updated>1762980402809</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Move launch of coroutine examples to a Coroutines.kt">
+      <created>1763053035384</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1763053035384</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Move launch of coroutine examples to Coroutines.kt">
+      <created>1763053078566</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1763053078566</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -224,46 +249,24 @@
     <MESSAGE value="Kotlin coroutines: cancel(), withTimeout(), yield()" />
     <MESSAGE value="Added inline, noinline, crossinline, reified examples" />
     <MESSAGE value="Multithreading: volatile, atomic, synchronized, mutex, semaphore, concurrent collections, race condition" />
-    <option name="LAST_COMMIT_MESSAGE" value="Multithreading: volatile, atomic, synchronized, mutex, semaphore, concurrent collections, race condition" />
+    <MESSAGE value="Move launch of coroutine examples to a Coroutines.kt" />
+    <MESSAGE value="Move launch of coroutine examples to Coroutines.kt" />
+    <option name="LAST_COMMIT_MESSAGE" value="Move launch of coroutine examples to Coroutines.kt" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/src/main/kotlin/Coroutines.kt</url>
-          <line>268</line>
+          <line>263</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar://C:/Program Files/Java/jdk-21/lib/src.zip!/java.base/java/util/ArrayList.java</url>
-          <line>231</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar://C:/Program Files/Java/jdk-21/lib/src.zip!/java.base/jdk/internal/util/ArraysSupport.java</url>
-          <line>739</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar://C:/Program Files/Java/jdk-21/lib/src.zip!/java.base/java/util/ArrayList.java</url>
-          <line>236</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar://C:/Program Files/Java/jdk-21/lib/src.zip!/java.base/java/util/ArrayList.java</url>
-          <line>483</line>
-          <option name="timeStamp" value="11" />
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/main/kotlin/Collections.kt</url>
+          <line>24</line>
+          <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
-    <watches-manager>
-      <configuration name="JetRunConfigurationType">
-        <watch expression="::isOdd" />
-        <watch expression="minCapacity - oldCapacity" />
-        <watch expression="oldCapacity &gt;&gt; 1" />
-        <watch expression="Arrays.copyOf(elementData, newCapacity)" />
-        <watch expression="Arrays.copyOf(elementData, newCapacity)" />
-      </configuration>
-    </watches-manager>
   </component>
 </project>
