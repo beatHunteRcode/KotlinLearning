@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8bcd01cd-97c5-4b90-ab1d-f956d858bf04" name="Changes" comment="Added inline, noinline, crossinline, reified examples">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/Multithreading.kt" afterDir="false" />
+    <list default="true" id="8bcd01cd-97c5-4b90-ab1d-f956d858bf04" name="Changes" comment="Multithreading: volatile, atomic, synchronized, mutex, semaphore, concurrent collections, race condition">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -52,21 +51,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "D:/Programming/Kotlin/Idea Projects/KotlinLearning",
-    "settings.editor.selected.configurable": "editor.preferences.tabs"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Programming/Kotlin/Idea Projects/KotlinLearning&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.tabs&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Programming\Kotlin\Idea Projects\KotlinLearning\src\main\kotlin" />
     </key>
   </component>
-  <component name="RunManager" selected="Kotlin.MultithreadingKt">
+  <component name="RunManager" selected="Kotlin.CoroutinesKt">
+    <configuration name="CoroutinesKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="CoroutinesKt" />
+      <module name="KotlinLearning.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="LambdaKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="LambdaKt" />
       <module name="KotlinLearning.main" />
@@ -92,6 +98,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Kotlin.CoroutinesKt" />
         <item itemvalue="Kotlin.MultithreadingKt" />
         <item itemvalue="Kotlin.LambdaKt" />
       </list>
@@ -183,7 +190,14 @@
       <option name="project" value="LOCAL" />
       <updated>1762673005305</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Multithreading: volatile, atomic, synchronized, mutex, semaphore, concurrent collections, race condition">
+      <created>1762980402809</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1762980402809</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -209,7 +223,8 @@
     <MESSAGE value="Added kotlin method reference example" />
     <MESSAGE value="Kotlin coroutines: cancel(), withTimeout(), yield()" />
     <MESSAGE value="Added inline, noinline, crossinline, reified examples" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added inline, noinline, crossinline, reified examples" />
+    <MESSAGE value="Multithreading: volatile, atomic, synchronized, mutex, semaphore, concurrent collections, race condition" />
+    <option name="LAST_COMMIT_MESSAGE" value="Multithreading: volatile, atomic, synchronized, mutex, semaphore, concurrent collections, race condition" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -4,9 +4,6 @@ import java.util.*
 
 fun main(args: Array<String>) {
 
-    val coroutines = Coroutines()
-    coroutines.runExamples()
-
 //    methodReferenceExample()
 
 //    val english = listOf("red", "yellow", "blue").asFlow()
