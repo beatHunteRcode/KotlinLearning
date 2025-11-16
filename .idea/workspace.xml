@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8bcd01cd-97c5-4b90-ab1d-f956d858bf04" name="Changes" comment="Move launch of coroutine examples to Coroutines.kt">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/Collections.kt" afterDir="false" />
+    <list default="true" id="8bcd01cd-97c5-4b90-ab1d-f956d858bf04" name="Changes" comment="Collections: LinkedHashMap, LinkedHashSet">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Multithreading.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Multithreading.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +68,7 @@
       <recent name="D:\Programming\Kotlin\Idea Projects\KotlinLearning\src\main\kotlin" />
     </key>
   </component>
-  <component name="RunManager" selected="Kotlin.CollectionsKt">
+  <component name="RunManager" selected="Kotlin.MultithreadingKt">
     <configuration name="CollectionsKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="CollectionsKt" />
       <module name="KotlinLearning.main" />
@@ -108,9 +108,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Kotlin.MultithreadingKt" />
         <item itemvalue="Kotlin.CollectionsKt" />
         <item itemvalue="Kotlin.CoroutinesKt" />
-        <item itemvalue="Kotlin.MultithreadingKt" />
         <item itemvalue="Kotlin.LambdaKt" />
       </list>
     </recent_temporary>
@@ -222,7 +222,14 @@
       <option name="project" value="LOCAL" />
       <updated>1763053078566</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Collections: LinkedHashMap, LinkedHashSet">
+      <created>1763064312802</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1763064312802</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -251,7 +258,8 @@
     <MESSAGE value="Multithreading: volatile, atomic, synchronized, mutex, semaphore, concurrent collections, race condition" />
     <MESSAGE value="Move launch of coroutine examples to a Coroutines.kt" />
     <MESSAGE value="Move launch of coroutine examples to Coroutines.kt" />
-    <option name="LAST_COMMIT_MESSAGE" value="Move launch of coroutine examples to Coroutines.kt" />
+    <MESSAGE value="Collections: LinkedHashMap, LinkedHashSet" />
+    <option name="LAST_COMMIT_MESSAGE" value="Collections: LinkedHashMap, LinkedHashSet" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -5,6 +5,8 @@ import java.util.concurrent.ConcurrentHashMap
 import java.util.concurrent.CopyOnWriteArrayList
 import java.util.concurrent.Semaphore
 import java.util.concurrent.atomic.AtomicInteger
+import java.util.concurrent.locks.ReentrantReadWriteLock
+import kotlin.concurrent.withLock
 import kotlin.random.Random
 import kotlin.system.measureTimeMillis
 
@@ -31,13 +33,14 @@ fun main() {
 //    mutexWithOwner()
 //    synchronizedWithLock()
 //    synchronizedBlockedThreadButMutexNot()
+    reentrantReadWriteLock()
 
 //    semaphore()
 
 //    concurrentList()
 //    mutableObjectInHashMap()
 //    concurrentMap()
-    concurrentSet()
+//    concurrentSet()
 }
 
 fun simpleThread() {
@@ -521,6 +524,91 @@ fun synchronizedBlockedThreadButMutexNot() = runBlocking {
     job2Synchronized.join()
     job1Mutex.join()
     job2Mutex.join()
+}
+
+fun reentrantReadWriteLock() = runBlocking {
+    val map = mutableMapOf<Int, String>(
+        1 to "Lupa",
+        2 to "Pupa"
+    )
+
+    val readWriteLock = ReentrantReadWriteLock()
+    val lambdaRead = suspend {
+        val jobs = (1..5).map { id ->
+            launch(Dispatchers.Default) {
+                readWriteLock.readLock().withLock {
+                    println("Reading map...: ${map[1]}. Attempt $id")
+                    Thread.sleep(1000)
+                }
+            }
+        }
+        jobs.joinAll()
+    }
+
+    val lambdaWrite = suspend {
+        val jobs = (1..5).map { id ->
+            launch(Dispatchers.Default) {
+                readWriteLock.writeLock().withLock {
+                    print("Writing map...: ")
+                    val key = Random.nextInt(3, 20)
+                    map[key] = "ABOBA"
+                    print(map[key])
+                    println(". Attempt $id")
+                    Thread.sleep(1000)
+                }
+            }
+        }
+        jobs.joinAll()
+    }
+
+    val lambdaReadWithWrite = suspend {
+        val jobs = (1..5).map { id ->
+            if (id < 3) {
+                launch(Dispatchers.Default) {
+                    readWriteLock.readLock().withLock {
+                        println("Reading map...: ${map[1]}. Attempt $id")
+                        Thread.sleep(1000)
+                    }
+                }
+            }
+            if (id == 3) {
+                launch(Dispatchers.Default) {
+                    readWriteLock.writeLock().withLock {
+                        print("Writing map...: ")
+                        val key = Random.nextInt(3, 20)
+                        map[key] = "ABOBA"
+                        print(map[key])
+                        println(". Attempt $id")
+                        Thread.sleep(1000)
+                    }
+                }
+            }
+            if (id > 3) {
+                launch(Dispatchers.Default) {
+                    readWriteLock.readLock().withLock {
+                        println("Reading map...: ${map[1]}. Attempt $id")
+                        Thread.sleep(1000)
+                    }
+                }
+            } else {
+                launch {  }
+            }
+        }
+        jobs.joinAll()
+    }
+
+    CoroutineScope(Dispatchers.Default).launch {
+        println("Only Reading using ReentrantReadWriteLock")
+        lambdaRead()
+
+        println()
+        println("Only Writing using ReentrantReadWriteLock")
+        lambdaWrite()
+
+        println()
+        println("Read with Write using ReentrantReadWriteLock")
+        lambdaReadWithWrite()
+    }.join()
 }
 
 val semaphore = Semaphore(5)
