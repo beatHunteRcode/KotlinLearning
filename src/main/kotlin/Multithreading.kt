@@ -22,7 +22,7 @@ fun main() {
 //    raceConditionSingleThread()
 
 //    deadlock()
-//    volatile()
+    volatile()
 
 //    concurrentCollectionsAdd()
 //    concurrentCollectionsChange()
@@ -33,7 +33,7 @@ fun main() {
 //    mutexWithOwner()
 //    synchronizedWithLock()
 //    synchronizedBlockedThreadButMutexNot()
-    reentrantReadWriteLock()
+//    reentrantReadWriteLock()
 
 //    semaphore()
 
@@ -250,23 +250,22 @@ fun deadlock() = runBlocking {
 }
 
 @Volatile
-var volatiledWrong = 0
+var volatiledWrongCounter = 0
 
+var isRunning = true
 @Volatile
-var volatiledRight = 0
+var volatiledIsRunning = true
 fun volatile() = runBlocking {
     val incrementVolatileWrongBlock = {
         for (i in 1..1000) {
-            volatiledWrong += 1
+            volatiledWrongCounter += 1
         }
     }
-    val scope1 = CoroutineScope(Dispatchers.Default)
-    val scope2 = CoroutineScope(Dispatchers.Default)
     val timeVolatile = measureTimeMillis {
-        val volatileJob1 = scope1.launch {
+        val volatileJob1 = launch(Dispatchers.Default) {
             incrementVolatileWrongBlock()
         }
-        val volatileJob2 = scope2.launch {
+        val volatileJob2 = launch(Dispatchers.Default) {
             incrementVolatileWrongBlock()
         }
 
@@ -274,33 +273,80 @@ fun volatile() = runBlocking {
         volatileJob2.join()
     }
 
-    println("VolatiledWrong: $volatiledWrong \t time: $timeVolatile ms")
+    println("volatiledWrongCounter: $volatiledWrongCounter \t time: $timeVolatile ms")
+    delay(1000)
 
-    val incrementVolatileRightBlock = {
-        for (i in 1..1000) {
-            volatiledRight += 1
+    println()
+    println("Not @Volatile flag:")
+    var endlessLoopBlock = {
+        println("Reader: Жду остановки...")
+
+        val currentTime = System.currentTimeMillis()
+        var isBroken = false
+        while (isRunning) {
+            // Теперь при каждом обращении isRunning читается из RAM
+            if (System.currentTimeMillis() == currentTime + 3000L) {
+                isBroken = true
+                println("Reader: BREAK (не увидел изменение)")
+                break
+            }
+        }
+
+        if (isBroken.not()) {
+            println("Reader: Остановлено! (увидел изменение)")
         }
     }
-    val readVolatileBlock: suspend (str: String) -> Unit = { str: String ->
-        for (i in 1..3) {
-            println("$str VolatiledRight: $volatiledRight")
-            delay(1000)
-        }
+    var flagChangingBlock = {
+        println("Writer: Меняю флаг на false...")
+        isRunning = false
+        println("Writer: Флаг изменен.")
     }
-    val scope3 = CoroutineScope(Dispatchers.Default)
-    val readVolatileJob1 = scope1.launch {
-        readVolatileBlock("Cor1")
+    var endlessLoopJob = launch(Dispatchers.Default + SupervisorJob()) {
+        endlessLoopBlock()
     }
-    val readVolatileJob2 = scope2.launch {
-        readVolatileBlock("Cor2")
-    }
-    val incrementVolatileJob = scope3.launch {
-        incrementVolatileRightBlock()
+    delay(1000)
+    var flagChangingJob = launch(Dispatchers.Default) {
+        flagChangingBlock()
     }
 
-    readVolatileJob1.join()
-    readVolatileJob2.join()
-    incrementVolatileJob.join()
+    endlessLoopJob.join()
+    flagChangingJob.join()
+    delay(1000)
+
+    println()
+    println("@Volatile flag:")
+    endlessLoopBlock = {
+        println("Reader: Жду остановки...")
+
+        val currentTime = System.currentTimeMillis()
+        var isBroken = false
+        while (volatiledIsRunning) {
+            // Теперь при каждом обращении isRunning читается из RAM
+            if (System.currentTimeMillis() == currentTime + 3000L) {
+                isBroken = true
+                println("Reader: BREAK (не увидел изменение)")
+                break
+            }
+        }
+
+        if (isBroken.not()) {
+            println("Reader: Остановлено! (увидел изменение)")
+        }
+    }
+    flagChangingBlock = {
+        println("Writer: Меняю флаг на false...")
+        volatiledIsRunning = false
+        println("Writer: Флаг изменен.")
+    }
+    endlessLoopJob = launch(Dispatchers.Default) {
+        endlessLoopBlock()
+    }
+    delay(1000)
+    flagChangingJob = launch(Dispatchers.Default) {
+        flagChangingBlock()
+    }
+    endlessLoopJob.join()
+    flagChangingJob.join()
 }
 
 fun concurrentCollectionsAdd() = runBlocking {
